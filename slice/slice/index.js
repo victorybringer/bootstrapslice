@@ -97,6 +97,7 @@ app.controller('myCtrl', function($http,$scope) {
 
 
         reader.onload = function () {
+            $scope.showimage=false
             $scope.current=""
             for(var a=0;a<markers.length;++a){
 
