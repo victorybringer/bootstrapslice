@@ -2,6 +2,7 @@
 var Range = ace.require('ace/range').Range;
 var selection=ace.require("ace/selection").Selection
 var markers=[]
+var choice
 var  variable=[];
 editor.session.setMode("ace/mode/c_cpp");
 
@@ -123,7 +124,7 @@ app.controller('myCtrl', function($http,$scope) {
 
     $scope.net= function(){
         $scope.current=""
-var choice=[]
+ choice=[]
 for(var a=0;a<=3;++a){
     for(var b=0;b<=$scope.radiocheck[a].length;++b){
 if ($scope.radiocheck[a][b]==true){
@@ -158,7 +159,7 @@ if ($scope.radiocheck[a][b]==true){
 
 
         }).success(function(req){
-
+$scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设置"], ["", "图像类型"], ["", "时间设置"]]
             $scope.result=[]
             $scope.showimage=false
             var origin=req.trim().split("\n")
@@ -201,7 +202,12 @@ if ($scope.radiocheck[a][b]==true){
 
 $scope.time="1800"
 
+    $scope.image=function () {
 
+        window.location.href="data/testfile_"+choice[3].toUpperCase()+".png";
+
+
+    }
 })
 
 
