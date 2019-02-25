@@ -34,11 +34,24 @@ app.post('/slice', function (req, res) {
 
                res.send(stdout+stderr)
 
+                exec("cd /usr/local/src/ && llvm-slicing testfile.c -g " +image, function(err,stdout,stderr){
 
 
 
 
-            })
+                    exec("cp /usr/local/src/testfile_SDG.png   /opt/slice/slice/data/", function(err,stdout,stderr){
+
+
+
+                        res.end()
+
+                    })
+
+
+
+
+
+                })
 
 
         });

@@ -20,6 +20,11 @@
             right: 50%;
         }
 
+        .myMarker {
+            position:absolute;
+            background: rgba(0, 245, 72, 0.64);
+            z-index:20
+        }
         </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,6 +39,7 @@
 <body ng-app="app" ng-controller="myCtrl">
 
 
+<div class="alert alert-success" role="alert">aaa</div>
 
 
 <input  onchange="angular.element(this).scope().change()"  type="file" id="file" style="display:none">
@@ -117,9 +123,17 @@ top:0%; width:100%" class="btn btn-success"  >
     </ul>
 
 
+    <div  ng-show="showimage" class="alert alert-warning" role="alert" style="position: absolute;
+bottom:20%; width:100%">发现变量:{{current}}</div>
+
+    <button ng-show="showimage" ng-click="image()" style="position: absolute;
+bottom:10%; width:100%" class="btn btn-info" >
+        <span  class="glyphicon glyphicon-picture"></span> 获取图像
+    </button>
+
 
 <button  ng-click="net()" style="position: absolute;
-bottom:0; width:100%" class="btn btn-success" >
+bottom:0; width:100%" class="btn btn-danger" >
         <span  class="glyphicon glyphicon-save"></span> 开始切片
     </button>
 
@@ -184,7 +198,7 @@ void inc(int *z)
 
 
 
-    <textarea class="form-control"  style="height:100%;font-size: 20px;font-family: 'Times New Roman'" >{{result}}
+    <textarea class="form-control"  style="height:100%;font-size: 20px;font-family: 'Times New Roman'"  >{{origin}}
 
 </textarea>
 
