@@ -118,7 +118,7 @@ app.controller('myCtrl', function($http,$scope) {
         }).success(function(req){
 
             $scope.filelist=req
-            
+
             $scope.current=""
             $scope.showimage=false
             $scope.showdir=!$scope.showdir
