@@ -5,62 +5,8 @@ const exec = require('child_process').exec;
  
 const fs = require('fs')
 
- 
-
-exec("cd /usr/local/&& ./gotty -w bash", function (err, stdout, stderr){
-
-   
 
 
- })
-
-
-app.get('/openfile', function (req, res) {
-
-    fs.readFile(req.query.path, 'utf8', function(err, data){
-       res.send(data)
-    });
-
-
-})
-
-
-app.get('/filesystem', function (req, res) {
-
-    exec("cd "+req.query.path+" && ls", function (err, stdout, stderr) {
-
-
-        if (req.query.path != "/etc/") {
-
-        var files = stdout.trim().split("\n")
-
-        var filelist = []
-
-
-        files.forEach(function (item, index) {
-            let fsStats = fs.statSync(req.query.path + item);
-            if (fsStats.isFile()) {
-                filelist.push([item, false]);
-            } else if (fsStats.isDirectory()) {
-                filelist.push([item, true]);
-            }
-
-        })
-
-        res.send(filelist)
-    }
-        else{
-
-
-
-            res.send(files)
-        }
-
-
-    })
-
-
-})
 
 app.post('/slice', function (req, res) {
     var code = [];
@@ -176,6 +122,7 @@ app.post('/slice', function (req, res) {
 
 
 
+	
 		
 		
 	
