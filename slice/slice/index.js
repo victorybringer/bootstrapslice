@@ -105,16 +105,33 @@ app.controller('myCtrl', function($http,$scope) {
 
     })
     $scope.dir=function () {
-        $scope.current=""
-        $scope.showimage=false
-        $scope.showdir=!$scope.showdir
-        for(var a=0;a<markers.length;++a){
 
-            editor.session.removeMarker(markers[a])
-        }
-     
-        $scope.slice="开始切片"
-        $scope.origin=""
+        $http({
+
+            method:'get',
+
+            url:'filesystem?path='+$scope.path,
+
+
+
+
+        }).success(function(req){
+
+            $scope.filelist=req
+            
+            $scope.current=""
+            $scope.showimage=false
+            $scope.showdir=!$scope.showdir
+            for(var a=0;a<markers.length;++a){
+
+                editor.session.removeMarker(markers[a])
+            }
+
+            $scope.slice="开始切片"
+            $scope.origin=""
+        })
+
+
     }
 
 
@@ -284,7 +301,7 @@ document.getElementById("file").click()
 
     $scope.net= function(){
         $scope.showdir=false
-        if ($scope.slice=="编辑模式"){
+        if ($scope.slice=="退出切片"){
             $scope.slice="开始切片"
             $scope.origin=""
             $scope.showimage=false
@@ -332,7 +349,7 @@ if ($scope.radiocheck[a][b]==true){
 
 
         }).success(function(req){
-            $scope.slice="编辑模式"
+            $scope.slice="退出切片"
 
             editor.session.setAnnotations([]);
 $scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设置"], ["", "图像类型"], ["", "时间设置"]]
@@ -411,7 +428,8 @@ $scope.time="1800"
 
     $scope.image=function () {
 
-        window.location.href="data/testfile_"+choice[3].toUpperCase()+".png";
+       localStorage.setItem("image",choice[3].toUpperCase())
+        window.location.href="image.html";
 
 
     }

@@ -94,9 +94,9 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Sdg") {
 
-                            exec("cp /usr/local/src/testfile_SDG.png   /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp /usr/local/src/testfile_SDG.dot  /opt/slice/slice/data/", function (err, stdout, stderr) {
 
-                                console.log(image)
+
                                 res.end()
 
                             })
@@ -106,9 +106,8 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Cg") {
 
-                            exec("cp /usr/local/src/testfile_CG.png   /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp /usr/local/src/testfile_CG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
 
-                                console.log(image)
                                 res.end()
 
                             })
@@ -117,8 +116,8 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Icfg") {
 
-                            exec("cp /usr/local/src/testfile_ICFG.png   /opt/slice/slice/data/", function (err, stdout, stderr) {
-                                console.log(image)
+                            exec("cp /usr/local/src/testfile_ICFG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
+
 
                                 res.end()
 
@@ -127,8 +126,14 @@ app.post('/slice', function (req, res) {
                         }
 
                         if (image != "Icfg" && image != "Sdg" && image != "Cg") {
-                            console.log(image)
-                            res.end()
+
+                            exec("cp /usr/local/src/testfile_SDG.png   /opt/slice/slice/data/", function (err, stdout, stderr) {
+
+
+                                res.end()
+
+                            })
+
 
                         }
 
