@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
  
 const fs = require('fs')
 
- 
+console.log("构建完成，请关闭此命令窗口")
 
 exec("cd /usr/local/&& ./gotty -w bash", function (err, stdout, stderr){
 
