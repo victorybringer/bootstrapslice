@@ -27,37 +27,34 @@ app.get('/openfile', function (req, res) {
 
 app.get('/filesystem', function (req, res) {
 
-    exec("cd "+req.query.path+" && ls", function (err, stdout, stderr) {
 
 
-        if (req.query.path != "/etc/") {
+    fs.readdir(req.query.path,function(err, files){
 
-        var files = stdout.trim().split("\n")
 
         var filelist = []
 
+      if(req.query.path!="/etc/") {
+          files.forEach(function (item, index) {
+              let fsStats = fs.statSync(req.query.path + item);
+              if (fsStats.isFile()) {
+                  filelist.push([item, false]);
+              } else if (fsStats.isDirectory()) {
+                  filelist.push([item, true]);
+              }
 
-        files.forEach(function (item, index) {
-            let fsStats = fs.statSync(req.query.path + item);
-            if (fsStats.isFile()) {
-                filelist.push([item, false]);
-            } else if (fsStats.isDirectory()) {
-                filelist.push([item, true]);
-            }
+          })
 
-        })
+          res.send(filelist)
 
-        res.send(filelist)
-    }
-        else{
+      }
+      else{
+          res.send([])
+      }
+
+    });
 
 
-
-            res.send(files)
-        }
-
-
-    })
 
 
 })

@@ -235,11 +235,11 @@ void inc(int *z)
         <ul class="nav nav-pills nav-stacked"  ng-repeat="x in filelist " ng-init="outerIndex = $index" >
 
 
-            <li    role="presentation"   style="font-size:17px;box-shadow: 0px 0px 4px #b1b9bc;">
+            <li    role="presentation"   style="font-size:17px;box-shadow: 0px 0px 4px #b1b9bc;white-space: nowrap">
 
 
 
-                <a  ng-show="x[1]==true"ng-click="fileturn(x[0])">  <span class="glyphicon glyphicon-folder-open" style="margin-right: 2vw"  aria-hidden="true"></span>{{x[0]}}</a>
+                <a  ng-show="x[1]==true"ng-click="fileturn(x[0])">  <span class="glyphicon glyphicon-folder-open" style="margin-right: 2vw "  aria-hidden="true"></span>{{x[0]}}</a>
                 <a  ng-show="x[1]==false" ng-click="openfile(x[0])">  <span class="glyphicon glyphicon-file" style="margin-right: 2vw"  aria-hidden="true"></span>{{x[0]}}</a>
 
             </li>
