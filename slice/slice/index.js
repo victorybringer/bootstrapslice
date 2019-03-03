@@ -105,7 +105,7 @@ app.controller('myCtrl', function($http,$scope) {
 
     })
     $scope.dir=function () {
-
+        $scope.current=""
         $scope.showimage=false
         $scope.showdir=!$scope.showdir
         for(var a=0;a<markers.length;++a){
