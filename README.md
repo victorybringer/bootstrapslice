@@ -1,5 +1,5 @@
 ﻿# Info
- 基于nuptzyz/llvm-slicing,在此镜像基础上配置了Node.js模块，实现C语言程序在线切片<br>
+ 基于nuptzyz/llvm-slicing,在此镜像基础上配置了Node.js,和基于Go的Gotty模块，实现C语言程序在线切片<br>
  更多信息请查看 `https://github.com/zhangyz/llvm-slicing`<br>
 # Example
  可访问阿里云服务器 `http://101.132.129.85:8000` 查看实例
