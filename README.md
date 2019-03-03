@@ -7,10 +7,9 @@
 ## 1.使用预构建的Docker镜像<br>
  `docker run -it -p 8000:8000 -p 8080:8080 victorybringer/bootstrapslice`<br>
 ## 2.或使用Dockerfile进行构建<br>
- `docker build -t victorybringer/bootstrapslice .`<br>
- ## 构建完成后<br>
- `docker run -it -p 8000:8000 -p 8080:8080 victorybringer/bootstrapslice`<br>
-# Run
+ `运行源码构建.bat`<br>
+ # Run
  `localhost:8000`<br>
+
 
 
