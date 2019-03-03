@@ -105,12 +105,14 @@ app.controller('myCtrl', function($http,$scope) {
 
     })
     $scope.dir=function () {
+
+        $scope.showimage=false
         $scope.showdir=!$scope.showdir
         for(var a=0;a<markers.length;++a){
 
             editor.session.removeMarker(markers[a])
         }
-        $scope.imgae=false
+     
         $scope.slice="开始切片"
         $scope.origin=""
     }
@@ -160,14 +162,13 @@ app.controller('myCtrl', function($http,$scope) {
         }).success(function(req){
 
 
-            $scope.showimage=false
             $scope.current=""
             for(var a=0;a<markers.length;++a){
 
                 editor.session.removeMarker(markers[a])
             }
             document.getElementById("file").value=""
-       
+
             editor.setValue(req.trim(), -1)
 
             $scope.origin=""
