@@ -167,7 +167,7 @@ app.controller('myCtrl', function($http,$scope) {
                 editor.session.removeMarker(markers[a])
             }
             document.getElementById("file").value=""
-            console.log(    document.getElementById("file").files+"aaa")
+       
             editor.setValue(req.trim(), -1)
 
             $scope.origin=""
