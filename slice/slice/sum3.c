@@ -40,3 +40,5 @@ void inc(int *z)
     int tmp = 1;
     add(z,&tmp);
 }
+
+

@@ -6,13 +6,63 @@ var choice
 var  variable=[];
 editor.session.setMode("ace/mode/c_cpp");
 
-
-
-
-
 var app = angular.module('app', []);
 
+search("/opt/slice/a/")
+
+function  search(a){
+
+    var index=1
+    var list=[]
+    while(index!=0){
+
+        index=a.indexOf("/",index)+1
+
+        if(index!=0)
+list.push(index)
+
+    }
+
+    if(list.length>=2){
+var back= a.substring(0,list[list.length-2])
+    return back
+
+    }
+   else{
+       return "/"
+
+    }
+
+}
+
 app.controller('myCtrl', function($http,$scope) {
+
+
+    $scope.path="/"
+
+    window.onload=function(){
+
+        $http({
+
+            method:'get',
+
+            url:'filesystem?path='+$scope.path,
+
+
+
+
+        }).success(function(req){
+
+            $scope.filelist=req
+
+
+        })
+
+
+
+
+
+    }
     editor.selection.on("changeSelection", function(){
 
         var cur=editor.getSelectedText()
@@ -54,6 +104,20 @@ app.controller('myCtrl', function($http,$scope) {
 
 
     })
+    $scope.dir=function () {
+        $scope.showdir=!$scope.showdir
+        for(var a=0;a<markers.length;++a){
+
+            editor.session.removeMarker(markers[a])
+        }
+        $scope.imgae=false
+        $scope.slice="开始切片"
+        $scope.origin=""
+    }
+
+
+    $scope.slice="开始切片"
+    $scope.terminal=false
     $scope.current=""
     $scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设置"], ["", "图像类型"], ["", "时间设置"]]
     $scope.origin
@@ -61,6 +125,84 @@ app.controller('myCtrl', function($http,$scope) {
     $scope.radiocontent = [["Bwd", "Fwd", "Both"], [" Symbolic", "Weiser", "SDG", "IFDS"], ["False", "True"], ["Sdg", "Cg", "Cdg", "Cfg", "Icfg", "Pdt", "Dt"]]
     $scope.radiocheck = [[true, false, false], [true, false, false, false], [true, false], [true, false, false, false, false, false, false]]
     $scope.showimage=false
+    $scope.showdir=false
+    $scope.fileturn=function(path){
+
+        $http({
+
+            method:'get',
+
+            url:'filesystem?path='+$scope.path+path+'/',
+
+
+
+
+        }).success(function(req){
+
+            $scope.filelist=req
+                $scope.path+=path+'/'
+
+        })
+
+    }
+
+    $scope.openfile=function(path){
+
+        $http({
+
+            method:'get',
+
+            url:'openfile?path='+$scope.path+path,
+
+
+
+
+        }).success(function(req){
+
+            $scope.showimage=false
+            $scope.current=""
+            for(var a=0;a<markers.length;++a){
+
+                editor.session.removeMarker(markers[a])
+            }
+
+            editor.setValue(req.trim(), -1)
+
+            $scope.origin=""
+
+
+
+
+        })
+
+    }
+
+
+
+
+    $scope.back=function(){
+
+
+        $http({
+
+            method:'get',
+
+            url:'filesystem?path='+search($scope.path),
+
+
+
+
+        }).success(function(req){
+
+            $scope.filelist=req
+            $scope.path=search($scope.path)
+
+        })
+
+    }
+
+
+
     $scope.radio = function (e) {
 
     var a=e.substring(0,1)
@@ -105,7 +247,7 @@ app.controller('myCtrl', function($http,$scope) {
             }
 
             editor.setValue(this.result.trim(), -1)
-
+            $scope.showdir=false
             $scope.origin=""
             $scope.$apply()
 
@@ -116,14 +258,39 @@ app.controller('myCtrl', function($http,$scope) {
 
     $scope.file = function(){
 
+document.getElementById("file").click()
+    };
+
+    $scope.openterminal = function(){
 
 
-        document.getElementById("file").click();
+            $scope.terminal=!$scope.terminal
+
+            document.getElementById("tx").style.bottom="0%"
+
+            if($scope.terminal==true)
+                document.getElementById("tx").style.bottom="40%"
+
+
+
+
 
     };
 
-
     $scope.net= function(){
+        $scope.showdir=false
+        if ($scope.slice=="编辑模式"){
+            $scope.slice="开始切片"
+            $scope.origin=""
+            $scope.showimage=false
+            $scope.result=[]
+            editor.session.setAnnotations([]);
+            for(var a=0;a<markers.length;++a){
+
+                editor.session.removeMarker(markers[a])
+            }
+        }
+       else{
         $scope.current=""
  choice=[]
 for(var a=0;a<=3;++a){
@@ -160,6 +327,9 @@ if ($scope.radiocheck[a][b]==true){
 
 
         }).success(function(req){
+            $scope.slice="编辑模式"
+
+            editor.session.setAnnotations([]);
 $scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设置"], ["", "图像类型"], ["", "时间设置"]]
             $scope.result=[]
             $scope.showimage=false
@@ -193,9 +363,40 @@ $scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设�
        if(variable.length>0){
            $scope.showimage=true
        }
+else{
+
+          var error=[]
+
+
+           for(var a=0;a<$scope.result.length;++a){
+               var name=$scope.result[a].indexOf("error:")
+
+               if(name!=-1){
+
+            error.push({
+                row: /(:[0-9]*)/ig.exec($scope.result[a])[0].replace(/:/ig,"")-1,
+                       column: 0,
+                       text: "Error ", // Or the Json reply from the parser
+                       type: "error" // also warning and information
+               })
+
+               }
+
+           }
+
+
+
+           editor.session.setAnnotations(error);
+
+
+
+
+
+       }
+
         })
 
-
+        }
 
     };
 
@@ -210,6 +411,7 @@ $scope.time="1800"
 
     }
 })
+
 
 
 
