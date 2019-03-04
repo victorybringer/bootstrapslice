@@ -428,8 +428,7 @@ $scope.time="1800"
 
     $scope.image=function () {
 
-       localStorage.setItem("image",choice[3].toUpperCase())
-        window.location.href="image.html";
+        window.location.href="image.html?image="+choice[3].toUpperCase();
 
 
     }
