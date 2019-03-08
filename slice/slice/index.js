@@ -5,10 +5,10 @@ var markers=[]
 var choice
 var  variable=[];
 editor.session.setMode("ace/mode/c_cpp");
-console.log(   document.getElementById("file").files)
+
 var app = angular.module('app', []);
 
-search("/opt/slice/a/")
+
 
 function  search(a){
 
@@ -40,29 +40,7 @@ app.controller('myCtrl', function($http,$scope) {
 
     $scope.path="/"
 
-    window.onload=function(){
 
-        $http({
-
-            method:'get',
-
-            url:'filesystem?path='+$scope.path,
-
-
-
-
-        }).success(function(req){
-
-            $scope.filelist=req
-
-
-        })
-
-
-
-
-
-    }
     editor.selection.on("changeSelection", function(){
 
         var cur=editor.getSelectedText()
