@@ -1,4 +1,5 @@
-﻿const express = require('express')
+﻿//基于Express框架
+const express = require('express')
 const app = express()
 
 const exec = require('child_process').exec; 
@@ -7,6 +8,7 @@ const fs = require('fs')
 
 console.log("构建完成，请关闭此命令窗口")
 
+//打开终端
 exec("cd /usr/local/&& ./gotty -w bash", function (err, stdout, stderr){
 
    
@@ -14,7 +16,7 @@ exec("cd /usr/local/&& ./gotty -w bash", function (err, stdout, stderr){
 
  })
 
-
+//容器模式下，读取文件
 app.get('/openfile', function (req, res) {
 
     fs.readFile(req.query.path, 'utf8', function(err, data){
@@ -24,7 +26,7 @@ app.get('/openfile', function (req, res) {
 
 })
 
-
+//容器模式下，列出文件目录
 app.get('/filesystem', function (req, res) {
 
 
@@ -59,6 +61,7 @@ app.get('/filesystem', function (req, res) {
 
 })
 
+//接收前端传来的代码，生成.C文件,交给LLVM处理
 app.post('/slice', function (req, res) {
     var code = [];
 
@@ -79,6 +82,7 @@ app.post('/slice', function (req, res) {
             var time = JSON.parse(code).time
 
 
+
             fs.writeFile('/usr/local/src/testfile.c', code, function (err) {
 
                 exec("llvm-slicing slice/data/testfile.c -d " + direction + " -m  " + method + " -p  " + parallel + " -t  " + time, function (err, stdout, stderr) {
@@ -91,7 +95,7 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Sdg") {
 
-                            exec("cp /usr/local/src/testfile_SDG.dot  /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp /usr/local/src/testfile_SDG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
 
 
                                 res.end()
@@ -103,7 +107,8 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Cg") {
 
-                            exec("cp /usr/local/src/testfile_CG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp /usr/local/src/testfile_CG.dot    /opt/slice/slice/data/", function (err, stdout, stderr) {
+
 
                                 res.end()
 
@@ -113,7 +118,7 @@ app.post('/slice', function (req, res) {
 
                         if (image == "Icfg") {
 
-                            exec("cp /usr/local/src/testfile_ICFG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp /usr/local/src/testfile_ICFG.dot    /opt/slice/slice/data/", function (err, stdout, stderr) {
 
 
                                 res.end()
@@ -123,8 +128,7 @@ app.post('/slice', function (req, res) {
                         }
 
                         if (image != "Icfg" && image != "Sdg" && image != "Cg") {
-
-                            exec("cp /usr/local/src/testfile_SDG.png   /opt/slice/slice/data/", function (err, stdout, stderr) {
+                            exec("cp -r /usr/local/src/testfile.c_"+image.toUpperCase()+"   /opt/slice/slice/data/", function (err, stdout, stderr) {
 
 
                                 res.end()
@@ -145,10 +149,15 @@ app.post('/slice', function (req, res) {
 
     })
 
+
 })
 
 
+
+    //slice目录下存放静态的HTML
     app.use(express.static('slice'))
+
+    //监听8000端口
     app.listen(8000, function() {
 
     })

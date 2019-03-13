@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3340cd78-0164-4984-a3d9-9199bed6500d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/slice/slice/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/slice/slice/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slice/slice/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/slice/slice/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slice/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/slice/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,10 +17,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/Desktop/a/wechatback/server.js">
+        <entry file="file://$PROJECT_DIR$/slice/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1349">
-              <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+            <state relative-caret-position="-2622">
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -30,9 +30,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>https</find>
+      <find>http</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,13 +50,17 @@
         <option value="$PROJECT_DIR$/slice/slice/index.js" />
         <option value="$PROJECT_DIR$/slice/slice/index.html" />
         <option value="$PROJECT_DIR$/mergesort.js" />
+        <option value="$PROJECT_DIR$/slice/node_modules/aa.html" />
+        <option value="$USER_HOME$/Desktop/a/wechatback/a.js" />
         <option value="$USER_HOME$/Desktop/a/wechatback/server.js" />
+        <option value="$USER_HOME$/Desktop/新建文本文档 (2).html" />
+        <option value="$PROJECT_DIR$/slice/server.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="7" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
@@ -65,6 +76,17 @@
               <item name="bootstrapslice" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootstrapslice" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bootstrapslice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootstrapslice" type="462c0819:PsiDirectoryNode" />
+              <item name="slice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootstrapslice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootstrapslice" type="462c0819:PsiDirectoryNode" />
+              <item name="slice" type="462c0819:PsiDirectoryNode" />
+              <item name="slice" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -73,6 +95,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -92,6 +115,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
+    <configuration name="aa.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/bootstrapslice/slice/node_modules/aa.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="a.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$USER_HOME$/Desktop/a/wechatback/a.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
     <configuration name="mergesort.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/mergesort.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -101,6 +130,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Node.js.server.js" />
+        <item itemvalue="Node.js.a.js" />
+        <item itemvalue="JavaScript Debug.aa.html" />
         <item itemvalue="Node.js.mergesort.js" />
       </list>
     </recent_temporary>
@@ -119,17 +150,32 @@
       <workItem from="1551954595463" duration="8405000" />
       <workItem from="1551969598621" duration="51000" />
       <workItem from="1552018222194" duration="3405000" />
+      <workItem from="1552048145485" duration="2936000" />
+      <workItem from="1552061593810" duration="608000" />
+      <workItem from="1552105610563" duration="11514000" />
+      <workItem from="1552131404414" duration="3151000" />
+      <workItem from="1552138185377" duration="1052000" />
+      <workItem from="1552186577987" duration="21000" />
+      <workItem from="1552190199660" duration="2662000" />
+      <workItem from="1552195562569" duration="1438000" />
+      <workItem from="1552208136956" duration="20000" />
+      <workItem from="1552222644338" duration="86000" />
+      <workItem from="1552227258580" duration="1215000" />
+      <workItem from="1552272575432" duration="1808000" />
+      <workItem from="1552373369733" duration="620000" />
+      <workItem from="1552402778956" duration="816000" />
+      <workItem from="1552450315589" duration="1126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14856000" />
+    <option name="totallyTimeSpent" value="43929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22523117" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10700132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -166,17 +212,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mergesort.js">
+    <entry file="file://$PROJECT_DIR$/mergesort.js" />
+    <entry file="file://$PROJECT_DIR$/slice/node_modules/aa.html" />
+    <entry file="file://$USER_HOME$/Desktop/a/wechatback/a.js" />
+    <entry file="file://$USER_HOME$/Desktop/a/wechatback/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="193">
+          <caret line="500" selection-start-line="500" selection-end-line="500" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/a/wechatback/server.js">
+    <entry file="file://$USER_HOME$/Desktop/新建文本文档 (2).html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1349">
-          <caret line="31" column="34" lean-forward="true" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        <state relative-caret-position="57">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slice/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2622">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
