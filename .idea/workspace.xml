@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3340cd78-0164-4984-a3d9-9199bed6500d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slice/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/slice/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="3340cd78-0164-4984-a3d9-9199bed6500d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slice/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2622">
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
+            <state relative-caret-position="494">
+              <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -164,15 +161,15 @@
       <workItem from="1552272575432" duration="1808000" />
       <workItem from="1552373369733" duration="620000" />
       <workItem from="1552402778956" duration="816000" />
-      <workItem from="1552450315589" duration="1126000" />
+      <workItem from="1552450315589" duration="1383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43929000" />
+    <option name="totallyTimeSpent" value="44186000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10700132" />
@@ -234,8 +231,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/slice/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2622">
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        <state relative-caret-position="494">
+          <caret line="113" column="30" lean-forward="true" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
         </state>
       </provider>
     </entry>
