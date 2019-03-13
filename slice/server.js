@@ -93,39 +93,6 @@ app.post('/slice', function (req, res) {
                     exec("cp slice/data/testfile.c /usr/local/src/ && cd /usr/local/src/ && llvm-slicing testfile.c -g " + image, function (err, stdout, stderr) {
 
 
-                        if (image == "Sdg") {
-
-                            exec("cp /usr/local/src/testfile_SDG.dot   /opt/slice/slice/data/", function (err, stdout, stderr) {
-
-
-                                res.end()
-
-                            })
-
-                        }
-
-
-                        if (image == "Cg") {
-
-                            exec("cp /usr/local/src/testfile_CG.dot    /opt/slice/slice/data/", function (err, stdout, stderr) {
-
-
-                                res.end()
-
-                            })
-                        }
-
-
-                        if (image == "Icfg") {
-
-                            exec("cp /usr/local/src/testfile_ICFG.dot    /opt/slice/slice/data/", function (err, stdout, stderr) {
-
-
-                                res.end()
-
-                            })
-
-                        }
 
                         if (image != "Icfg" && image != "Sdg" && image != "Cg") {
                             exec("cp -r /usr/local/src/testfile.c_"+image.toUpperCase()+"   /opt/slice/slice/data/", function (err, stdout, stderr) {
@@ -137,7 +104,17 @@ app.post('/slice', function (req, res) {
 
 
                         }
+else{
 
+                            exec("cp  /usr/local/src/testfile_"+image.toUpperCase()+".dot"+"   /opt/slice/slice/data/", function (err, stdout, stderr) {
+
+
+                                res.end()
+
+                            })
+
+
+                        }
 
                     })
 
