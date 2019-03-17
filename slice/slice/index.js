@@ -105,7 +105,7 @@ app.controller('myCtrl', function($http,$scope) {
 
             $scope.filelist=req
 
-            $scope.current=""
+
             $scope.showimage=false
             $scope.showdir=!$scope.showdir
             for(var a=0;a<markers.length;++a){
@@ -120,7 +120,7 @@ app.controller('myCtrl', function($http,$scope) {
             else{
                 document.getElementById("side").style.right="0%"
             }
-
+            variable=[];
             $scope.slice="开始切片"
             $scope.origin=""
         })
@@ -131,7 +131,7 @@ app.controller('myCtrl', function($http,$scope) {
 
     $scope.slice="开始切片"
     $scope.terminal=false
-    $scope.current=""
+
     $scope.navstyle = [["", "切片方向"], ["", "切片方法"], ["", "并行设置"], ["", "图像类型"], ["", "时间设置"]]
     $scope.origin
     $scope.icon = ["glyphicon glyphicon-sort","glyphicon glyphicon-th-large","glyphicon glyphicon-align-justify","glyphicon glyphicon-picture","glyphicon glyphicon-time"]
@@ -173,7 +173,7 @@ app.controller('myCtrl', function($http,$scope) {
         }).success(function(req){
 
 
-            $scope.current=""
+
             for(var a=0;a<markers.length;++a){
 
                 editor.session.removeMarker(markers[a])
@@ -256,9 +256,9 @@ app.controller('myCtrl', function($http,$scope) {
 
 
         reader.onload = function () {
-            console.log(   document.getElementById("file").files)
+
             $scope.showimage=false
-            $scope.current=""
+
             $scope.slice="开始切片"
             for(var a=0;a<markers.length;++a){
 
@@ -299,6 +299,8 @@ document.getElementById("file").click()
     $scope.net= function(){
         $scope.showdir=false
         if ($scope.slice=="退出切片"){
+
+            variable=[];
             $scope.slice="开始切片"
             $scope.origin=""
             $scope.showimage=false
@@ -310,7 +312,7 @@ document.getElementById("file").click()
             }
         }
        else{
-        $scope.current=""
+
  choice=[]
 for(var a=0;a<=3;++a){
     for(var b=0;b<=$scope.radiocheck[a].length;++b){
