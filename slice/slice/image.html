@@ -15,29 +15,59 @@
 
     app.controller('myCtrl', function($http,$scope) {
 
+var type=location.search.split("=")[1]
+
 
         window.onload=function(){
 
-            $http({
+    if(type=="SDG"||type=="ICFG"||type=="CG") {
+        $http({
 
-                method:'get',
+            method: 'get',
 
-                url:'openfile?path=/opt/slice/slice/data/testfile_'+location.search.split("=")[1]+".dot",
-
-
-
-
-            }).success(function(req){
-
-console.log(req)
-                d3.select("#graph").graphviz().renderDot(req);
+            url: 'openfile?path=/opt/slice/slice/data/testfile_' + type + ".dot",
 
 
+        }).success(function (req) {
+
+
+            d3.select("#graph").graphviz().renderDot(req);
+
+
+        })
+    }
+    else{
+        $http({
+
+            method: 'get',
+
+            url: 'multidot?type='+type,
+
+
+        }).success(function (req) {
+
+
+            var graphviz = d3.select("#graph").graphviz()
+                .tweenShapes(false);
 
 
 
-            })
 
+            for(var i=0;i<req.length;++i) {
+
+
+                graphviz
+
+
+                    .renderDot(req[i]);
+
+            }
+
+
+        })
+
+
+    }
 
 
 

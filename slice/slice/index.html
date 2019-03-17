@@ -52,10 +52,7 @@ top:0%;width:20%;bottom:0;
 top:0%; width:100%" class="btn btn-success"  >
         <span  class="glyphicon glyphicon-open" ></span> 选择文件
     </button>
-    <button  ng-click="dir()"style="position: absolute;
-top:4%; width:100%" class="btn btn-primary"  >
-        <span  class="glyphicon glyphicon-folder-open" ></span> 容器访问
-    </button>
+
 
     <div style="height:15vh">
 
@@ -127,8 +124,7 @@ top:4%; width:100%" class="btn btn-primary"  >
     </ul>
 
 
-    <div  ng-show="showimage" class="alert alert-warning" role="alert" style="position: absolute;
-bottom:9.6%; width:100%">发现变量:{{current}}</div>
+
 
     <button ng-show="showimage" ng-click="image()" style="position: absolute;
 bottom:8%; width:100%" class="btn btn-info" >
@@ -202,12 +198,23 @@ void inc(int *z)
             right: 0%">
 
 
+<button id="side" ng-click="dir()" class="btn btn-primary" style=" position: absolute;
+            top: 40%;
+          width:3%;
+height: 30%;
+            right: 0%;white-space:pre-wrap;display:flex;flex-direction:column;justify-content: center;align-items: center"> <span  class="glyphicon glyphicon-folder-open" ><p style="margin-top: 6px;line-height:17px;  ">容器访问</p></span></button>
+
+
+
 
 
 
     <textarea class="form-control"  style="height:100%;font-size: 20px;font-family: 'Times New Roman'"  >{{origin}}
 
 </textarea>
+
+
+
 
 
 

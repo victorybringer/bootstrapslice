@@ -48,30 +48,38 @@ app.controller('myCtrl', function($http,$scope) {
         for (var i=0;i<variable.length;++i){
 
             if (cur==variable[i][0].trim()){
-                $scope.current=cur
-                $scope.$apply()
-                var str=$scope.result[variable[i][1]]
-                var regex = /\[(.+?)\]/g;
 
-                var a=str.match(regex)+""
-                a=a.replace("[",'');
+                var r=confirm("发现变量"+cur+",是否显示切片结果？")
+                if (r==true)
+                {
+                    var str=$scope.result[variable[i][1]]
+                    var regex = /\[(.+?)\]/g;
 
-
-                var b=a.replace("]",'');
-
-                $scope.number= b.split(",")
+                    var a=str.match(regex)+""
+                    a=a.replace("[",'');
 
 
-                for(var a=0;a<markers.length;++a){
+                    var b=a.replace("]",'');
 
-                    editor.session.removeMarker(markers[a])
+                    $scope.number= b.split(",")
+
+
+                    for(var a=0;a<markers.length;++a){
+
+                        editor.session.removeMarker(markers[a])
+                    }
+                    markers=[]
+                    for(var a=0;a< $scope.number.length;++a){
+
+                        markers[a]=editor.session.addMarker(new Range($scope.number[a]-1, 0, $scope.number[a]-1, 1), "myMarker", "fullLine");
+                    }
+                    editor.clearSelection()
                 }
-                markers=[]
-                for(var a=0;a< $scope.number.length;++a){
+                else
+                {
 
-                    markers[a]=editor.session.addMarker(new Range($scope.number[a]-1, 0, $scope.number[a]-1, 1), "myMarker", "fullLine");
                 }
-                editor.clearSelection()
+
 
             }
 
@@ -103,6 +111,14 @@ app.controller('myCtrl', function($http,$scope) {
             for(var a=0;a<markers.length;++a){
 
                 editor.session.removeMarker(markers[a])
+            }
+
+            if($scope.showdir==true){
+                document.getElementById("side").style.right="30%"
+            }
+
+            else{
+                document.getElementById("side").style.right="0%"
             }
 
             $scope.slice="开始切片"
@@ -163,6 +179,9 @@ app.controller('myCtrl', function($http,$scope) {
                 editor.session.removeMarker(markers[a])
             }
             document.getElementById("file").value=""
+
+
+
 
             editor.setValue(req.trim(), -1)
 
@@ -327,6 +346,15 @@ if ($scope.radiocheck[a][b]==true){
 
 
         }).success(function(req){
+
+
+
+
+
+
+                document.getElementById("side").style.right="0%"
+
+
             $scope.slice="退出切片"
 
             editor.session.setAnnotations([]);

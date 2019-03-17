@@ -26,6 +26,34 @@ app.get('/openfile', function (req, res) {
 
 })
 
+//非SDG,ICFG,CG的图像类型，需要加载4个Dot文件画出一个完整图像
+app.get('/multidot', function (req, res) {
+
+    var list=[]
+var path="slice/data/testfile.c_"+req.query.type+"/"
+    fs.readFile(path+"A.dot", 'utf8', function(err, data){
+    list.push(data)
+    });
+
+    fs.readFile(path+"add.dot", 'utf8', function(err, data){
+        list.push(data)
+    });
+
+    fs.readFile(path+"inc.dot", 'utf8', function(err, data){
+        list.push(data)
+    });
+
+    fs.readFile(path+"main.dot", 'utf8', function(err, data){
+        list.push(data)
+
+        res.send(list)
+    });
+
+
+
+
+})
+
 //容器模式下，列出文件目录
 app.get('/filesystem', function (req, res) {
 
