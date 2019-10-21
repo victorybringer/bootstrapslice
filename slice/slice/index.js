@@ -1,4 +1,5 @@
-﻿var editor = ace.edit("editor");
+﻿
+var editor = ace.edit("editor");
 var Range = ace.require('ace/range').Range;
 var selection=ace.require("ace/selection").Selection
 var markers=[]

@@ -132,7 +132,7 @@ app.post('/slice', function (req, res) {
 
 
                         }
-else{
+                           else{
 
                             exec("cp  /usr/local/src/testfile_"+image.toUpperCase()+".dot"+"   /opt/slice/slice/data/", function (err, stdout, stderr) {
 
